@@ -28,7 +28,7 @@ pipeline {
                         sh "./gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\""
                     }else{
                         testNGxmlPath = "$folder\\testing\\src\\main\\resources\\suite.xml"
-                        bat label: '', script: 'gradlew run -DtestNGxmlPath=\\"' + testNGxmlPath '\\"'
+                        bat label: '', script: 'gradlew run -DtestNGxmlPath=' +'"' + testNGxmlPath +'"'
                     }
                 }
             }
