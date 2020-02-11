@@ -4,10 +4,6 @@ pipeline {
     options {
         timestamps ()
         ansiColor ('xterm')
-        timeout (time: 120,
-        unit: 'MINUTES',
-        activity: true
-        )
     }
 
     parameters
@@ -35,9 +31,6 @@ pipeline {
             }
         }
         stage ('Build') {
-            when {
-                beforeAgent true
-            }
             steps {
                 script {
                     def folder = pwd()
