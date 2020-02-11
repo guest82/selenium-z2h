@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" verbose="3" name="Failed suite [SeleniumSuite]">
+  <test thread-count="1" verbose="3" name="Login Test(failed)">
+    <classes>
+      <class name="ui_integration.LoginTest_4">
+        <methods>
+          <include name="beforeClassInit"/>
+          <include name="loginPositive"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- ui_integration.LoginTest_4 -->
+    </classes>
+  </test> <!-- Login Test(failed) -->
+</suite> <!-- Failed suite [SeleniumSuite] -->

@@ -1,0 +1,20 @@
+group 'automation'
+version '1.0-SNAPSHOT'
+
+subprojects {
+    apply plugin: 'java'
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.16.16'
+        annotationProcessor 'org.projectlombok:lombok:1.16.16'
+        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.24'
+    }
+
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+
+    repositories {
+        mavenCentral()
+    }
+
+}

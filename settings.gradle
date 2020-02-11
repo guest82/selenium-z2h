@@ -1,0 +1,5 @@
+rootProject.name = 'selenium-z2h'
+
+include(':ui_builder')
+include 'testing'
+

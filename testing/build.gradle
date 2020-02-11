@@ -1,0 +1,23 @@
+
+plugins {
+    id "application"
+}
+
+
+dependencies {
+    compile 'org.testng:testng:6.13.1'
+    compile project(":ui_builder")
+    compile "org.seleniumhq.selenium:selenium-api:3.13.0"
+}
+
+ext {
+    javaMainClass = "TestRunner"
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
+run {
+    systemProperties System.getProperties()
+}

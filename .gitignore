@@ -1,0 +1,92 @@
+# IntelliJ stuff
+*.iml
+**/.idea/
+
+# Outputs
+*.dll
+*.jar
+*.sig
+*.so
+logs/
+target/
+KeyPair.pem
+
+
+#System Files
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+
+
+# Ignore DD resources brought from artifactory
+cdr/adapters/dd_adapter/src/main/resources/dd-adapter
+cdr/restore_service/src/main/resources/cdr_configuration.properties
+
+# Ignore Eclipse stuff
+.settings
+.cproject
+.project
+
+test-output/*
+
+
+# Created by https://www.gitignore.io/api/gradle
+# Edit at https://www.gitignore.io/?templates=gradle
+
+### Gradle ###
+.gradle/
+.gradle/*
+build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+
+### Gradle Patch ###
+**/build/
+**/npm/
+
+out/
+
+**/*.rpm
+#Spring Boot UI Folder
+cdra/cdra_main/src/main/resources/static
+cdra/cdra_main/src/main/resources/cdra_vmdk/monitor_cdr.sh
+cdra/cdra_main/src/main/resources/dd-adapter
+cdrs/cdrs_main/src/main/resources/static
+cdrs/cdrs_main/src/main/resources/common_tar/monitor_cdr.sh
+cdrs/cdrs_main/src/main/resources/dd-adapter
+
+infra/upgrade_workflow/upgrade/
+commons/data_segment/segments_metadata/segments_metadata_impl/null/
+cdra/cdra_upgrade/cdra_upgrade_impl/upgrade/
+infra/local_secure_store/src/main/resources/*.properties
+# Ignore DD resources brought from artifactory
+adapters/dd_adapter/src/main/resources/dd-adapter
+
+clients/cdra_ui/node_modules
+clients/cdra_ui/node
+
+# compiled expected
+clients/cdra_ui/dist
+clients/cdra_ui/tmp
+clients/cdra_ui/src/app/rest/
+clients/cdra_ui/src/app/rest-cdrs/
+clients/swagger_ui/
+clients/cdra_ui/package.json
+clients/cdra_ui/package-lock.json
+clients/cdr_ui_mock_server/node_modules/
+clients/cdr_ui_mock_server/package-lock.json
+clients/cdra_ui/npm-debug.log
+clients/cdra_ui/debug.log
+
+
