@@ -5,21 +5,6 @@ pipeline {
         timestamps ()
     }
 
-    parameters
-    {
-        choice (name: 'BROWSER',
-        choices: "chrome\nfirefox\nedge",
-        description: 'Where to run scripts from'
-        )
-        string (name: 'HUB_URL',
-        defaultValue: '',
-        description: ''
-        )
-        string (name: 'SUITE',
-        defaultValue: "testing\\src\\main\\resources\\suite.xml",
-        description: ''
-        )
-    }
     stages {
         stage ('Build') {
             steps {
@@ -37,13 +22,13 @@ pipeline {
             steps {
                 script {
                     def folder = pwd()
-                    def testNGxmlPath = "$folder/$params.SUITE"
+                    def testNGxmlPath
                     if (isUnix()){
-                        testNGxmlPath = "$folder/$params.SUITE"
-                        sh "./gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\"-Dbrowser=$params.BROWSER -DhubUrl=$params.HUB_URL"
+                        testNGxmlPath = "$folder/testing/src/main/resources/suite.xml"
+                        sh "./gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\""
                     }else{
-                        testNGxmlPath = "$folder\\$params.SUITE"
-                        bat label: '', script: "gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\" -Dbrowser=$params.BROWSER -DhubUrl=$params.HUB_URL"
+                        testNGxmlPath = "$folder\\testing\\src\\main\\resources\\suite.xml"
+                        bat label: '', script: "gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\""
                     }
                 }
             }
