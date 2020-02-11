@@ -3,7 +3,6 @@ pipeline {
 
     options {
         timestamps ()
-        ansiColor ('xterm')
     }
 
     parameters
@@ -30,7 +29,7 @@ pipeline {
                 }
             }
         }
-        stage ('Build') {
+        stage ('Test') {
             steps {
                 script {
                     def folder = pwd()
