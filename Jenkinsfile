@@ -40,10 +40,10 @@ pipeline {
                     def testNGxmlPath = "$folder/$params.SUITE"
                     if (isUnix()){
                         testNGxmlPath = "$folder/$params.SUITE"
-                        sh "./gradlew run -DtestNGxmlPath='$testNGxmlPath' -Dbrowser=$params.BROWSER -DhubUrl=$params.HUB_URL"
+                        sh "./gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\"-Dbrowser=$params.BROWSER -DhubUrl=$params.HUB_URL"
                     }else{
                         testNGxmlPath = "$folder\\$params.SUITE"
-                        bat label: '', script: "gradlew run -DtestNGxmlPath='$testNGxmlPath' -Dbrowser=$params.BROWSER -DhubUrl=$params.HUB_URL"
+                        bat label: '', script: "gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\" -Dbrowser=$params.BROWSER -DhubUrl=$params.HUB_URL"
                     }
                 }
             }
