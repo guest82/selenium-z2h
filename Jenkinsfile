@@ -25,7 +25,11 @@ pipeline {
             steps {
                 script {
                     sh "chmod 775 gradlew"
-                    sh "./gradlew build"
+                    if (isUnix()){
+                        sh "./gradlew build"
+                    }else{
+                        bat label: '', script: 'gradlew build'
+                    }
                 }
             }
         }
@@ -34,7 +38,11 @@ pipeline {
                 script {
                     def folder = pwd()
                     def testNGxmlPath = "$folder/$params.SUITE"
-                    sh "./gradlew run -DtestNGxmlPath=$testNGxmlPath -Dbrowser=$params.BROWSER -DhubUrl=$params.HUB_URL"
+                    if (isUnix()){
+                        sh "./gradlew run -DtestNGxmlPath=$testNGxmlPath -Dbrowser=$params.BROWSER -DhubUrl=$params.HUB_URL"
+                    }else{
+                        bat label: '', script: "gradlew run -DtestNGxmlPath=$testNGxmlPath -Dbrowser=$params.BROWSER -DhubUrl=$params.HUB_URL"
+                    }
                 }
             }
         }
