@@ -7,8 +7,6 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -16,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.EdgeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import lombok.Getter;
 import lombok.Setter;
@@ -74,10 +71,6 @@ public class SeleniumDriver extends BaseSeleniumDriver implements ISeleniumDrive
             case FIREFOX:
                 FirefoxDriverManager.firefoxdriver().setup();
                 this.driver = new FirefoxDriver((FirefoxOptions)options);
-                break;
-            case EDGE:
-                EdgeDriverManager.edgedriver().version(EDGE_DRIVER_VERSION).setup();
-                this.driver = new EdgeDriver((EdgeOptions)options);
                 break;
             default:
                 ChromeDriverManager.chromedriver().setup();

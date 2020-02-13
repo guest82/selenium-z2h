@@ -24,8 +24,6 @@ public class ChromeStandaloneDriver implements ISeleniumDriver {
         ChromeOptions chromeOptions = new ChromeOptions();
         logger.info("Set capability to accept SSL Connections");
         chromeOptions.setAcceptInsecureCerts(true);
-        logger.info("Set capability to work with local " + BROWSER_LOCALE_DEFAULT);
-        chromeOptions.addArguments("--lang=" + BROWSER_LOCALE_DEFAULT);
         return chromeOptions;
     }
 

@@ -22,7 +22,7 @@ public class BaseTest_2 {
     winpty docker run --rm -ti --name zalenium -p 4444:4444 -v //var/run/docker.sock://var/run/docker.sock -v //tmp/videos://home/seluser/videos --privileged dosel/zalenium start
     docker stop zalenium
      */
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClassInit() throws Exception {
         String browser = System.getProperty("browser");
         String hubUrl = System.getProperty("hubUrl");

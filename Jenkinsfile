@@ -1,5 +1,7 @@
 pipeline {
-    agent { label "comp" }
+    agent {
+            docker { image 'maven:3-alpine'}
+        }
 
     options {
         timestamps ()
@@ -10,11 +12,7 @@ pipeline {
             steps {
                 script {
                     sh "chmod 775 gradlew"
-                    if (isUnix()){
-                        sh "./gradlew build"
-                    }else{
-                        bat label: '', script: 'gradlew build'
-                    }
+                    sh "./gradlew build"
                 }
             }
         }
@@ -22,14 +20,8 @@ pipeline {
             steps {
                 script {
                     def folder = pwd()
-                    def testNGxmlPath
-                    if (isUnix()){
-                        testNGxmlPath = "$folder/testing/src/main/resources/suite.xml"
-                        sh "./gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\""
-                    }else{
-                        testNGxmlPath = "$folder\\testing\\src\\main\\resources\\suite.xml"
-                        bat label: '', script: 'gradlew run -DtestNGxmlPath=' +'"' + testNGxmlPath +'"'
-                    }
+                    def testNGxmlPath = "$folder/testing/src/main/resources/suite.xml"
+                    sh "./gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\""
                 }
             }
         }
