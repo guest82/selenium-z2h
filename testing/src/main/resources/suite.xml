@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SeleniumSuite" verbose="3" thread-count="1" preserve-order="true">
+    <listeners>
+        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter"/>
+    </listeners>
     <test name="Login Test">
         <classes>
             <class name="ui_integration.LoginTest_4"/>

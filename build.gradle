@@ -1,6 +1,10 @@
 group 'automation'
 version '1.0-SNAPSHOT'
 
+ext {
+    selenium_version = "3.13.0"
+}
+
 subprojects {
     apply plugin: 'java'
 
@@ -8,6 +12,7 @@ subprojects {
         compileOnly 'org.projectlombok:lombok:1.16.16'
         annotationProcessor 'org.projectlombok:lombok:1.16.16'
         compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.24'
+        implementation 'com.github.jeniamayzel:rest_client:master-SNAPSHOT'
     }
 
     sourceCompatibility = '1.8'
@@ -15,6 +20,7 @@ subprojects {
 
     repositories {
         mavenCentral()
+        maven { url "https://jitpack.io" }
     }
 
 }

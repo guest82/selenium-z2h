@@ -1,5 +1,8 @@
 rootProject.name = 'selenium-z2h'
 
-include(':ui_builder')
+include 'ui_builder'
 include 'testing'
+include 'rest_client'
+include 'test_infra'
+include 'selenium_client'
 

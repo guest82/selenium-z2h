@@ -6,8 +6,12 @@ plugins {
 
 dependencies {
     compile 'org.testng:testng:6.13.1'
-    compile project(":ui_builder")
     compile "org.seleniumhq.selenium:selenium-api:3.13.0"
+    compile 'com.vimalselvam:testng-extentsreport:1.3.0'
+    compile project(":ui_builder")
+    compile project(":test_infra")
+    compile 'org.apache-extras.beanshell:bsh:2.0b6'
+//    compile 'org.beanshell:bsh:2.0b5'
 }
 
 ext {

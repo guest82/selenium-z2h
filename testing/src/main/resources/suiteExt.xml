@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SeleniumSuite" verbose="3" thread-count="1" preserve-order="true">
+    <listeners>
+        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter"/>
+    </listeners>
+<!--    <test name="Login Test">-->
+<!--        <classes>-->
+<!--            <class name="ui_integration.LoginTest_4"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Test With groups Filter">
+        <method-selectors>
+            <method-selector>
+                <script language="beanshell">
+                    <!-- We Can Manipulate here with Code-->
+                    <!-- Requires : compile 'org.beanshell:bsh:2.0b5' as dependency-->
+                    <![CDATA[whatBrowser=System.getProperty("browser");
+                        (groups.containsKey(whatBrowser) ||testngMethod.getGroups().length==0);]]>
+                </script>
+            </method-selector>
+        </method-selectors>
+        <classes>
+            <class name="ui_integration.TestNgTest"/>
+        </classes>
+    </test>
+
+    <test name="Groups Filter">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="ui_integration.TestNgTest"/>
+        </classes>
+    </test>
+
+    <test name="External Parameters">
+        <parameter name="param1" value="0" />
+        <parameter name="param2" value="true" />
+        <parameter name="param3" value="I am String" />
+        <classes>
+            <class name="ui_integration.TestNgTest"></class>
+        </classes>
+    </test>
+
+</suite>

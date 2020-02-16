@@ -1,9 +1,8 @@
 
-
 dependencies {
     compile "org.seleniumhq.selenium:selenium-api:$selenium_version"
     compile "org.seleniumhq.selenium:selenium-support:$selenium_version"
-    
+
     compile "org.seleniumhq.selenium:selenium-chrome-driver:$selenium_version"
     compile "org.seleniumhq.selenium:selenium-edge-driver:$selenium_version"
     compile "org.seleniumhq.selenium:selenium-firefox-driver:$selenium_version"
@@ -11,4 +10,3 @@ dependencies {
     compile "org.seleniumhq.selenium:selenium-java:$selenium_version"
     compile "io.github.bonigarcia:webdrivermanager:3.3.0"
 }
-
