@@ -21,7 +21,8 @@ pipeline {
                 script {
                     def folder = pwd()
                     def testNGxmlPath = "$folder/testing/src/main/resources/suite.xml"
-                    sh "./gradlew run -DtestNGxmlPath=\"" + testNGxmlPath "\""
+                    def jarPath = "$folder/testing/build/libs/testing.jar"
+                    sh "java -jar $jarPath $testNGxmlPath"
                 }
             }
         }

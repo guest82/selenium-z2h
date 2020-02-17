@@ -10,22 +10,6 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="Test With groups Filter">
-        <method-selectors>
-            <method-selector>
-                <script language="beanshell">
-                    <!-- We Can Manipulate here with Code-->
-                    <!-- Requires : compile 'org.beanshell:bsh:2.0b5' as dependency-->
-                    <![CDATA[whatBrowser=System.getProperty("browser");
-                        (groups.containsKey(whatBrowser) ||testngMethod.getGroups().length==0);]]>
-                </script>
-            </method-selector>
-        </method-selectors>
-        <classes>
-            <class name="ui_integration.TestNgTest"/>
-        </classes>
-    </test>
-
     <test name="Groups Filter">
         <groups>
             <run>

@@ -1,27 +1,32 @@
-
 plugins {
-    id "application"
+    id "com.github.johnrengelman.shadow" version "5.0.0"
 }
+
+apply plugin: 'com.github.johnrengelman.shadow'
 
 
 dependencies {
-    compile 'org.testng:testng:6.13.1'
+    compile 'org.testng:testng:7.1.0'
     compile "org.seleniumhq.selenium:selenium-api:3.13.0"
     compile 'com.vimalselvam:testng-extentsreport:1.3.0'
     compile project(":ui_builder")
     compile project(":test_infra")
-    compile 'org.apache-extras.beanshell:bsh:2.0b6'
-//    compile 'org.beanshell:bsh:2.0b5'
+
 }
 
-ext {
-    javaMainClass = "TestRunner"
+artifacts {
+    archives shadowJar
 }
 
-application {
-    mainClassName = javaMainClass
+jar {
+    enabled = false
+    dependsOn(shadowJar { classifier = null })
 }
 
-run {
-    systemProperties System.getProperties()
+
+shadowJar {
+    zip64 true
+    manifest {
+        attributes 'Main-Class': 'TestRunner'
+    }
 }

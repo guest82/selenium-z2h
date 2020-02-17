@@ -12,7 +12,7 @@ public class TestRunner {
         TestNG testng ;
         List<XmlSuite> suite;
         File xmlFile;
-        String xmlFilePath = System.getProperty("testNGxmlPath");
+        String xmlFilePath = args[0];
         System.out.println(xmlFilePath);
         if (xmlFilePath != null) {
             testng = new TestNG();
