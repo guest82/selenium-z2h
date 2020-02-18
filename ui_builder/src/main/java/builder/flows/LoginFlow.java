@@ -16,7 +16,7 @@ public class LoginFlow {
     }
 
     public static void basicLoginFluentFlow(ISeleniumDriver seleniumDriver, String username, String password ) {
-        new LoginFluentPage(seleniumDriver)
+        new LoginFluentPage(seleniumDriver.getDriver())
             .inputUsername(username)
             .inputPassword(password)
             .clickLoginBtn();

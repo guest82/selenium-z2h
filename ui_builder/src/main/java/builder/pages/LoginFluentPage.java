@@ -1,39 +1,38 @@
 package builder.pages;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
-import builder.BasePage;
-import builder.ISeleniumDriver;
+import builder.BasePage2;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class LoginFluentPage extends BasePage {
+public class LoginFluentPage extends BasePage2 {
 
-    @FindBy(id = "login_field")
-    private WebElement usernameFld;
+    private By usernameFld = By.id("login_field");
 
-    @FindBy(id = "password")
-    private WebElement passwordFld;
+    private By passwordFld = By.id("password");
 
-    @FindBy(name = "commit")
-    private WebElement loginBtn;
+    private By loginBtn = By.name("commit");
 
-    public LoginFluentPage(ISeleniumDriver seleniumDriver) {
-        super(seleniumDriver.getDriver());
+    public LoginFluentPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public LoginFluentPage go(String uri){
+        goToUrl(uri);
+        return this;
     }
 
     public LoginFluentPage inputUsername(String username) {
-        usernameFld.clear();
-        usernameFld.sendKeys(username);
+        writeText(usernameFld, username);
         return this;
     }
 
     public LoginFluentPage inputPassword(String password) {
-        passwordFld.clear();
-        sendKeys(passwordFld, password);
+        writeText(passwordFld, password);
         return this;
     }
 
